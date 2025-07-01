@@ -1,0 +1,13 @@
+services:
+  python-app:
+    image: sensor_optimizer_image
+    build:
+      context: .             # Dockerfile이 있는 경로
+      dockerfile: Dockerfile
+    container_name: sensor_optimizer_container
+    working_dir: /workspace
+    volumes:
+      - .:/workspace               # 현재 디렉토리를 컨테이너와 공유
+    stdin_open: true
+    tty: true
+    command: sh -c "cd /app && bash" 
